@@ -43,6 +43,16 @@
     </div>
     <% end %>
 
+    <table>
+      <% @book_comments.each do |book_comment| %>
+        <tr>
+          <td>
+            <%= book_comment.comment%>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
 	</div>
 </div>
 
