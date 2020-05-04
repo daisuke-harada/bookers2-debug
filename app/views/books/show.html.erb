@@ -42,7 +42,7 @@
         </div>
     </div>
     <% end %>
-    
+
     <h2>Book comments</h2>
 
     <table class="table">
@@ -66,7 +66,7 @@
             </td>
             <% if book_comment.user == current_user %>
               <td>
-                <%= link_to "Destroy",book_book_comments_path(@book_find.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %>
+                <%= link_to "Destroy", book_book_comment_path(book_comment), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %>
               </td>
             <% else %>
               <td></td>
