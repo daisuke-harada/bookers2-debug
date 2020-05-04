@@ -42,15 +42,38 @@
         </div>
     </div>
     <% end %>
+    
+    <h2>Book comments</h2>
 
-    <table>
-      <% @book_comments.each do |book_comment| %>
+    <table class="table">
+      <thead>
         <tr>
-          <td>
-            <%= book_comment.comment%>
-          </td>
+          <th></th>
+          <th>comment</th>
+          <th>name</th>
+          <th></th>
         </tr>
-      <% end %>
+      </thead>
+      <tbody>
+        <% @book_comments.each do |book_comment| %>
+          <tr>
+            <td><%= attachment_image_tag(book_comment.user, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg") %></td>
+            <td>
+              <%= book_comment.comment %>
+            </td>
+            <td>
+              <%= book_comment.user.name %>
+            </td>
+            <% if book_comment.user == current_user %>
+              <td>
+                <%= link_to "Destroy",book_book_comments_path(@book_find.id), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger" %>
+              </td>
+            <% else %>
+              <td></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
 
 	</div>
