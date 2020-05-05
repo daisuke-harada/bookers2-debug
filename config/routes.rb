@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :book_comments, only: [:create, :destroy]
   end
 
-  get 'followers/index'
+  get 'followers/:id'=>'followers#show', as:'followers'
+  get 'followings/:id'=>'followings#show', as:'followings'
 
 end
