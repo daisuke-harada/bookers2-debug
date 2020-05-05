@@ -17,7 +17,7 @@
 		</tr>
 		<tr>
 			<th>followers</th>
-			<th><%= user.followers.count %></th>
+			<th><%= link_to user.followers.count, followers_index_path %></th>
 		</tr>
 
     <% unless current_user == user %>
