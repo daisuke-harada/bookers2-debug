@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   	@book = Book.new #new bookの新規投稿で必要（保存処理はbookコントローラー側で実施）
     @user = current_user
   end
-  
+
   def edit
   	@user = User.find(params[:id])
     if @user != current_user
