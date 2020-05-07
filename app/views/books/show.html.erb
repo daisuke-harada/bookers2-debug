@@ -22,9 +22,8 @@
 					</td>
 					<td><%= link_to @book_find.title, book_path(@book_find) %></td>
 					<td><%= @book_find.body %></td>
-
-          <%= render 'favorites/favorite', book: @book_find %>
-
+					<td><%= render 'favorites/favorite', book: @book_find %></td>
+           <td>コメント数<%= @book_find.book_comments.count %></td>
 				  <% if @book_find.user == current_user %>
 					  <td><%= link_to "Edit",edit_book_path(@book_find), class: "btn-sm btn-success" %></td>
 					  <td><%= link_to "Destroy",book_path(@book_find), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book" %></td>
@@ -34,15 +33,14 @@
 				</tr>
 		</table>
 
-		<%= form_for [@book_find, @book_comment] do |f| %>
       <div class="row">
         <div class="col-sm-12">
-            <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
-            <%= f.submit "送信する" %>
+          <dev id="comments_area">
+            <%= render partial: 'book_comments/form', locals: {book_find: @book_find, book_comment: @book_comment } %>
+            <%= render partial: 'book_comments/index', locals: { book_comments: @book_comments} %>
+          </dev>
         </div>
       </div>
-    <% end %>
-    <%= render 'books/comments', book_comments: @book_comments %>
-	</div>
-</div>
+    </div>
+  </div>
 
