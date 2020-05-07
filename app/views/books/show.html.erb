@@ -35,10 +35,13 @@
 
       <div class="row">
         <div class="col-sm-12">
-          <dev id="comments_area">
-            <%= render partial: 'book_comments/form', locals: {book_find: @book_find, book_comment: @book_comment } %>
+            <%= form_with model: [@book_find, @book_comment], data: {remote: true} do |f| %>
+              <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+              <%= f.submit "送信する" %>
+            <% end %>
+          <div id="comments_area">
             <%= render partial: 'book_comments/index', locals: { book_comments: @book_comments} %>
-          </dev>
+          </div>
         </div>
       </div>
     </div>
