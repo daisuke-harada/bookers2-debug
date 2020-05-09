@@ -55,8 +55,5 @@ class User < ApplicationRecord
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
 
-  geocoded_by :address
-  after_validation :geocode, if: :address_changed?
-
 end
 

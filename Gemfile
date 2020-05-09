@@ -67,6 +67,5 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'jp_prefecture'
 gem 'dotenv-rails'
-gem 'geocoder'
 
 
